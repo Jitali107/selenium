@@ -15,20 +15,7 @@ jobs:
       - name: Archive test results
         uses: actions/upload-artifact@v2
         with:
-          name: test-output-ubuntu
+          name: test-output-(Ubuntu-test)
           path: |
             test-output/output.json
             test-output/HtmlReport/ExtentHtml.html
-      - name: Observe artifacts
-        run: |
-          pwd
-          ls -l
-      - name: Download Test Reports Folder
-        uses: actions/download-artifact@v2
-        with:
-          name: test-output
-      - name: Observe artifacts
-        run: |
-          pwd
-          mkdir test-results
-          cp test-output/output.json test-results/output.json
