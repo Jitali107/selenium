@@ -20,11 +20,5 @@ jobs:
             test-output/output.json
             test-output/HtmlReport/ExtentHtml.html
             target/surefire-reports/junitreports/*.xml
-      - name: Observe artifacts
-        run: |
-         pwd
-         ls -l
-      - name: Download Test Reports Folder
-        uses: actions/download-artifact@v2
-        with:
-          name: test-output-${{ matrix.modules.name }}-${{ matrix.os }}
+      
+      
