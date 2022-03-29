@@ -12,3 +12,19 @@ jobs:
           distribution: 'adopt'
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-output-${{ matrix.modules.name }}-${{ matrix.os }}
+          path: |
+            test-output/output.json
+            test-output/HtmlReport/ExtentHtml.html
+            target/surefire-reports/junitreports/*.xml
+      - name: Observe artifacts
+        run: |
+         pwd
+         ls -l
+      - name: Download Test Reports Folder
+        uses: actions/download-artifact@v2
+        with:
+          name: test-output-${{ matrix.modules.name }}-${{ matrix.os }}
