@@ -21,7 +21,7 @@ jobs:
             test-output/HtmlReport/ExtentHtml.html
             target/surefire-reports/junitreports/*.xml
       - name: Download Test Reports Folder
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v1
         with:
           name: test-output-${{ matrix.modules.name }}-${{ matrix.os }}
       
