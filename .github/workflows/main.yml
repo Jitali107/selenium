@@ -19,7 +19,6 @@ jobs:
           path: |
             test-output/output.json
             test-output/HtmlReport/ExtentHtml.html
-            target/surefire-reports/junitreports/*.xml
       - name: Observe artifacts
         run: |
           pwd
@@ -32,5 +31,4 @@ jobs:
         run: |
           pwd
           mkdir test-results
-          cp target/surefire-reports/junitreports/TEST-com.huma.runner.MobileRunner.xml test-results/${{ matrix.modules.name }}-${{ matrix.os }}.xml
           cp test-output/output.json test-results/output.json
