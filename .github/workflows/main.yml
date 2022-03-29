@@ -12,10 +12,8 @@ jobs:
           distribution: 'adopt'
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Archive test results
+      - name: Archive test report
         uses: actions/upload-artifact@v2
         with:
-          name: test-output-(Ubuntu-test)
-          path: |
-            test-output/output.json
-            test-output/HtmlReport/ExtentHtml.html
+          name: Test report
+          path: build/reports/tests/test
