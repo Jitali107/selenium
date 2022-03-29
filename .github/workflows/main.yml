@@ -15,7 +15,7 @@ jobs:
       - name: Archive test results
         uses: actions/upload-artifact@v2
         with:
-          name: test-output-${{ matrix.modules.name }}-${{ matrix.os }}
+          name: test-output-ubuntu
           path: |
             test-output/output.json
             test-output/HtmlReport/ExtentHtml.html
@@ -27,7 +27,7 @@ jobs:
       - name: Download Test Reports Folder
         uses: actions/download-artifact@v2
         with:
-          name: test-output-${{ matrix.modules.name }}-${{ matrix.os }}
+          name: test-output
       - name: Observe artifacts
         run: |
           pwd
